@@ -3,8 +3,8 @@ const router=express.Router()
 
 router.post("/",async(req,res)=>{
     try {
-        const {name,age,marks}=req.body
-        const nStudent=new Student({name,age,marks})
+        const {name,age,grade, courses} = req.body
+        const nStudent=new Student({name,age,grade, courses})
         const sStudent=await nStudent.save()
         res.status(201).json({data:sStudent})
     } catch (error) {
