@@ -1,0 +1,28 @@
+/* 1
+CREATE TABLE Books (    BookID INT PRIMARY KEY,   Title VARCHAR(30),     Author VARCHAR(20),    PublishedYear INT);
+ALTER TABLE Books ADD ISBN VARCHAR(20);
+ALTER TABLE Books DROP COLUMN PublishedYear;
+
+/*2
+SELECT Name FROM Students WHERE Age > 15;
+INSERT INTO Students (StudentID, Name, Age, Grade) VALUES (01, 'Hector Goland', 17, 'A');
+UPDATE Students SET Grade = 'B+'WHERE Name = 'Emanuel';
+DELETE FROM Students WHERE Grade = 'A';
+
+/*3
+GRANT SELECT, INSERT ON Books TO User2;
+REVOKE INSERT ON Books FROM User2;
+
+/*4
+BEGIN TRANSACTION;
+INSERT INTO Orders (OrderID, ProductID, Quantity) VALUES (201, 105, 
+UPDATE Inventory SET Quantity = Quantity - 2 WHERE ProductID = 105;
+IF @@ERROR <> 0 BEGIN    
+ROLLBACK TRANSACTION; END ELSE BEGIN 
+COMMIT TRANSACTION; END
+
+/*5
+CREATE TABLE Customers (    CustomerID INT PRIMARY KEY,     Name VARCHAR(20),    Email VARCHAR(20),     Phone VARCHAR(10) );
+INSERT INTO Customers (CustomerID, Name, Email, Phone) VALUES (111, 'Bryce Wayne', 'bryce@wayne.com', '123456789');
+GRANT SELECT ON Customers TO AdminUser;
+BEGIN TRANSACTION; DELETE FROM Customers WHERE CustomerID = 201; ROLLBACK TRANSACTION;
